@@ -1247,42 +1247,40 @@
 
 
   <!-- ==============================================
-       FLOATING ACTIONS & CHATBOT
+       FLOATING ACTIONS & DIRECT INQUIRY CHAT
   ============================================== -->
 
-  <!-- Chatbot Floating Action Button (Just above WhatsApp) -->
+  <!-- Direct Inquiry Floating Action Button (Just above WhatsApp) -->
   <div class="chatbot-floating-action" id="chatbotFloatWrap">
-    <button type="button" class="chatbot-trigger-btn" id="chatbotToggleBtn" aria-label="Open Parshva AI Chatbot">
-      <span class="floating-tooltip">Chat with Assistant</span>
+    <button type="button" class="chatbot-trigger-btn" id="chatbotToggleBtn" aria-label="Open Direct Inquiry Chat">
+      <span class="floating-tooltip">Direct Inquiry</span>
       <div class="chatbot-icon-wrap">
-        <i class="fa-solid fa-comment-dots icon-chat"></i>
+        <i class="fa-solid fa-message icon-chat"></i>
         <i class="fa-solid fa-xmark icon-close"></i>
       </div>
-      <span class="chatbot-status-pulse"></span>
     </button>
   </div>
 
-  <!-- Chatbot Window Popup -->
+  <!-- Direct Inquiry Window Popup -->
   <div class="chatbot-window" id="chatbotWindow" aria-hidden="true">
-    <!-- Chatbot Header -->
+    <!-- Chat Header -->
     <div class="chatbot-header">
       <div class="chatbot-header-profile">
         <div class="chatbot-avatar-wrap">
-          <img src="assets/parshva.jpg" alt="Parshva AI Assistant" class="chatbot-avatar-img">
+          <img src="assets/parshva.jpg" alt="Parshva Patel" class="chatbot-avatar-img">
           <span class="chatbot-online-dot"></span>
         </div>
         <div class="chatbot-header-info">
           <div class="chatbot-header-name">
-            <span>Parshva Assistant</span>
-            <span class="chatbot-badge">AI</span>
+            <span>Parshva Patel</span>
           </div>
           <div class="chatbot-header-status">
-            <i class="fa-solid fa-circle"></i> Online • Instant Replies
+            <i class="fa-solid fa-circle"></i> Web Developer &amp; UI Designer
           </div>
         </div>
       </div>
       <div class="chatbot-header-actions">
-        <button type="button" class="chatbot-action-btn" id="chatbotResetBtn" title="Restart conversation" aria-label="Restart conversation">
+        <button type="button" class="chatbot-action-btn" id="chatbotResetBtn" title="Reset conversation" aria-label="Reset conversation">
           <i class="fa-solid fa-rotate-right"></i>
         </button>
         <button type="button" class="chatbot-action-btn" id="chatbotCloseBtn" title="Close chat" aria-label="Close chat">
@@ -1291,36 +1289,35 @@
       </div>
     </div>
 
-    <!-- Chatbot Messages Area -->
+    <!-- Chat Messages Area -->
     <div class="chatbot-messages" id="chatbotMessages">
       <div class="chat-system-pill">
-        <span>⚡ Interactive Portfolio Assistant</span>
+        <span>Direct Portfolio Inquiry</span>
       </div>
 
-      <!-- Welcome Message from Bot -->
+      <!-- Welcome Message -->
       <div class="chat-msg bot-msg">
         <div class="chat-msg-avatar">
           <img src="assets/parshva.jpg" alt="Parshva">
         </div>
         <div class="chat-msg-content">
-          <p>Hi there! 👋 I'm Parshva's Virtual Assistant.</p>
-          <p>Whether you'd like to explore live projects, discuss pricing, understand the tech stack, or get a quotation, I'm here to help.</p>
-          <p>How can I assist you today?</p>
+          <p>Hello. Welcome to my portfolio.</p>
+          <p>I am a freelance web developer and UI designer based in Ahmedabad, India. How can I assist you with your project today?</p>
         </div>
       </div>
 
-      <!-- Suggested Quick Chips -->
+      <!-- Quick Action Chips (Zero Emojis, Pure Minimalist Clean Pills) -->
       <div class="chat-chips-container" id="chatChipsContainer">
-        <button type="button" class="chat-chip" data-query="projects">🚀 Live Projects</button>
-        <button type="button" class="chat-chip" data-query="pricing">💼 Packages &amp; Pricing</button>
-        <button type="button" class="chat-chip" data-query="stack">⚡ Tech Stack</button>
-        <button type="button" class="chat-chip" data-query="timeline">⏱️ Delivery Time</button>
-        <button type="button" class="chat-chip" data-query="whatsapp">💬 WhatsApp Parshva</button>
-        <button type="button" class="chat-chip" data-query="contact">📩 Get a Free Quote</button>
+        <button type="button" class="chat-chip" data-query="projects">Live Projects</button>
+        <button type="button" class="chat-chip" data-query="pricing">Services &amp; Pricing</button>
+        <button type="button" class="chat-chip" data-query="timeline">Delivery Timelines</button>
+        <button type="button" class="chat-chip" data-query="stack">Technology Stack</button>
+        <button type="button" class="chat-chip" data-query="whatsapp">WhatsApp Direct</button>
+        <button type="button" class="chat-chip" data-query="contact">Contact Information</button>
       </div>
     </div>
 
-    <!-- Chatbot Typing Indicator -->
+    <!-- Chat Typing Indicator -->
     <div class="chatbot-typing" id="chatbotTyping">
       <div class="chat-msg-avatar">
         <img src="assets/parshva.jpg" alt="Parshva">
@@ -1332,9 +1329,9 @@
       </div>
     </div>
 
-    <!-- Chatbot Input Bar -->
+    <!-- Chat Input Bar -->
     <form class="chatbot-input-bar" id="chatbotForm">
-      <input type="text" id="chatbotInput" class="chatbot-input-field" placeholder="Ask a question or type a message..." autocomplete="off">
+      <input type="text" id="chatbotInput" class="chatbot-input-field" placeholder="Type your inquiry or message..." autocomplete="off">
       <button type="submit" class="chatbot-send-btn" id="chatbotSendBtn" aria-label="Send message">
         <i class="fa-solid fa-paper-plane"></i>
       </button>

@@ -483,47 +483,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const botResponses = {
     projects: `
-      <p>Here are Parshva's verified live platforms:</p>
-      <p>🏔️ <strong>Ibex Adventure</strong><br>
-      High-converting adventure tourism and trekking platform with responsive UX.<br>
+      <p>Featured live production platforms:</p>
+      <p><strong>Ibex Adventure</strong><br>
+      High-conversion adventure tourism and trek booking web platform with responsive UX.<br>
       <a href="https://ibex-adventure-updated.vercel.app/" target="_blank" rel="noopener" class="chat-link-btn">Visit Ibex Adventure <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
-      <p>🛡️ <strong>GeM Verify</strong><br>
-      Government e-Marketplace vendor verification and credential validation tool.<br>
+      <p><strong>GeM Verify</strong><br>
+      Government e-Marketplace credentials validation and vendor verification portal.<br>
       <a href="https://gem-verify-ten.vercel.app/" target="_blank" rel="noopener" class="chat-link-btn">Visit GeM Verify <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
     `,
     pricing: `
-      <p>Parshva offers 3 clean website packages:</p>
-      <p>💼 <strong>Basic Website (Starter)</strong>: 3-5 pages, mobile-first design, contact forms & WhatsApp quick chat. (5-7 business days)</p>
-      <p>🚀 <strong>Standard Website (Growth)</strong>: 5-8 pages, bespoke layout, micro-animations, on-page SEO setup & PageSpeed &gt;90.</p>
-      <p>👑 <strong>Premium Website (Enterprise)</strong>: Full custom web app, CMS admin panel, database integration, and Razorpay/Stripe e-commerce payment gateway.</p>
+      <p>Website packages and scope:</p>
+      <p><strong>Basic Website (Starter)</strong>: 3 to 5 custom pages, mobile-responsive layout, contact forms, and WhatsApp quick chat. (5-7 business days)</p>
+      <p><strong>Standard Website (Growth)</strong>: 5 to 8 bespoke pages, custom layout, micro-animations, on-page SEO setup, and PageSpeed score &gt;90.</p>
+      <p><strong>Premium Website (Enterprise)</strong>: Custom web applications, admin panel / CMS, database integration, and payment gateways (Razorpay &amp; Stripe).</p>
       <a href="#services" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Explore Packages Section <i class="fa-solid fa-arrow-down"></i></a>
       <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I'd%20like%20a%20quote%20for%20my%20website%20project." target="_blank" rel="noopener" class="chat-link-btn wa-btn">Get Custom Quote on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
     `,
     stack: `
-      <p>Parshva's core technology stack:</p>
-      <p>⚡ <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Tailwind CSS</p>
-      <p>🛠️ <strong>Backend & APIs:</strong> Node.js, Express, Python, REST APIs</p>
-      <p>🗄️ <strong>Database & Hosting:</strong> Supabase, PostgreSQL, MongoDB, Vercel, Git & GitHub</p>
-      <p>🎯 <strong>Standards:</strong> 100% Mobile-first UI, Technical SEO, sub-second load times.</p>
+      <p>Core technical stack and tools:</p>
+      <p><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Tailwind CSS</p>
+      <p><strong>Backend &amp; APIs:</strong> Node.js, Express, Python, REST APIs</p>
+      <p><strong>Database &amp; Hosting:</strong> Supabase, PostgreSQL, MongoDB, Vercel, Git &amp; GitHub</p>
+      <p><strong>Focus:</strong> Clean semantics, mobile responsiveness, and high PageSpeed performance.</p>
     `,
     timeline: `
       <p>Standard delivery timelines:</p>
-      <p>⚡ <strong>Starter Website:</strong> 5 to 7 business days</p>
-      <p>🚀 <strong>Standard Website:</strong> 10 to 14 business days</p>
-      <p>🏢 <strong>Custom Web App / E-Commerce:</strong> 2 to 4 weeks depending on features</p>
-      <p>Fast-track emergency turnaround is also available upon inquiry.</p>
+      <p><strong>Starter Website:</strong> 5 to 7 business days</p>
+      <p><strong>Standard Website:</strong> 10 to 14 business days</p>
+      <p><strong>Custom Web App / E-Commerce:</strong> 2 to 4 weeks depending on scope</p>
+      <p>Fast-track turnaround is also available upon request.</p>
     `,
     whatsapp: `
-      <p>You can chat directly with Parshva on WhatsApp right now!</p>
-      <p>📱 <strong>Phone:</strong> +91 90540 79397<br>
-      📍 <strong>Location:</strong> Ahmedabad, Gujarat, India</p>
-      <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I%20am%20interested%20in%20building%20a%20website%20with%20you!" target="_blank" rel="noopener" class="chat-link-btn wa-btn">Open WhatsApp Directly <i class="fa-brands fa-whatsapp"></i></a>
+      <p>Direct communication on WhatsApp:</p>
+      <p><strong>Phone:</strong> +91 90540 79397<br>
+      <strong>Location:</strong> Ahmedabad, Gujarat, India</p>
+      <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I%20am%20interested%20in%20building%20a%20website%20with%20you!" target="_blank" rel="noopener" class="chat-link-btn wa-btn">Open WhatsApp Chat <i class="fa-brands fa-whatsapp"></i></a>
     `,
     contact: `
-      <p>Ready to start your project?</p>
-      <p>You can reach Parshva via:</p>
-      <p>📧 <strong>Email:</strong> patelparshv1052006@gmail.com<br>
-      📱 <strong>WhatsApp:</strong> +91 90540 79397</p>
+      <p>Direct contact channels:</p>
+      <p><strong>Email:</strong> patelparshv1052006@gmail.com<br>
+      <strong>Phone:</strong> +91 90540 79397<br>
+      <strong>Location:</strong> Ahmedabad, Gujarat, India</p>
       <a href="#contact" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Go to Contact Form <i class="fa-solid fa-arrow-down"></i></a>
       <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I%20would%20like%20to%20discuss%20a%20new%20project." target="_blank" rel="noopener" class="chat-link-btn wa-btn">Chat on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
     `
@@ -551,19 +551,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return botResponses.contact;
     }
     if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q.includes('kem cho') || q.includes('namaste') || q.includes('morning') || q.includes('evening')) {
-      return `<p>Hello! 👋 Great to connect with you. How can Parshva assist you with your website or web application project today?</p>`;
+      return `<p>Hello. How can I assist you with your web development or design project today?</p>`;
     }
     if (q.includes('about') || q.includes('who') || q.includes('parshva') || q.includes('experience')) {
       return `
         <p>Parshva is a freelance web developer and UI designer based in <strong>Ahmedabad, Gujarat, India</strong>.</p>
-        <p>He specializes in hand-crafted, conversion-oriented websites, custom frontend engineering, and full-stack web applications.</p>
+        <p>Specializing in custom websites, responsive UI design, and full-stack web applications for businesses and founders.</p>
         <a href="#about" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Read Full About Section <i class="fa-solid fa-arrow-down"></i></a>
       `;
     }
 
     return `
-      <p>Thank you for asking! Parshva can definitely assist you with that.</p>
-      <p>For custom inquiries, tailored requirements, or to get an instant quote, feel free to send a message directly:</p>
+      <p>Thank you for your message.</p>
+      <p>To review your specific project requirements directly, please send a message on WhatsApp or submit the contact form:</p>
       <a href="https://wa.me/919054079397?text=${encodeURIComponent('Hi Parshva, ' + rawText)}" target="_blank" rel="noopener" class="chat-link-btn wa-btn">Message Parshva on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
       <a href="#services" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">View Packages <i class="fa-solid fa-arrow-down"></i></a>
     `;
@@ -623,28 +623,27 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!chatbotMessages) return;
     chatbotMessages.innerHTML = `
       <div class="chat-system-pill">
-        <span>⚡ Interactive Portfolio Assistant</span>
+        <span>Direct Portfolio Inquiry</span>
       </div>
       <div class="chat-msg bot-msg">
         <div class="chat-msg-avatar">
           <img src="assets/parshva.jpg" alt="Parshva">
         </div>
         <div class="chat-msg-content">
-          <p>Hi there! 👋 I'm Parshva's Virtual Assistant.</p>
-          <p>Whether you'd like to explore live projects, discuss pricing, understand the tech stack, or get a quotation, I'm here to help.</p>
-          <p>How can I assist you today?</p>
+          <p>Hello. Welcome to my portfolio.</p>
+          <p>I am a freelance web developer and UI designer based in Ahmedabad, India. How can I assist you with your project today?</p>
         </div>
       </div>
       <div class="chat-chips-container" id="chatChipsContainer">
-        <button type="button" class="chat-chip" data-query="projects">🚀 Live Projects</button>
-        <button type="button" class="chat-chip" data-query="pricing">💼 Packages &amp; Pricing</button>
-        <button type="button" class="chat-chip" data-query="stack">⚡ Tech Stack</button>
-        <button type="button" class="chat-chip" data-query="timeline">⏱️ Delivery Time</button>
-        <button type="button" class="chat-chip" data-query="whatsapp">💬 WhatsApp Parshva</button>
-        <button type="button" class="chat-chip" data-query="contact">📩 Get a Free Quote</button>
+        <button type="button" class="chat-chip" data-query="projects">Live Projects</button>
+        <button type="button" class="chat-chip" data-query="pricing">Services &amp; Pricing</button>
+        <button type="button" class="chat-chip" data-query="timeline">Delivery Timelines</button>
+        <button type="button" class="chat-chip" data-query="stack">Technology Stack</button>
+        <button type="button" class="chat-chip" data-query="whatsapp">WhatsApp Direct</button>
+        <button type="button" class="chat-chip" data-query="contact">Contact Information</button>
       </div>
     `;
-    showToast('Chat reset', 'info');
+    showToast('Conversation reset', 'info');
   });
 
 });
