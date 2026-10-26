@@ -383,4 +383,268 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3500);
   }
 
+
+  // --------------------------------------------------------------------------
+  // 9. INTERACTIVE PORTFOLIO CHATBOT
+  // --------------------------------------------------------------------------
+  const chatbotToggleBtn = document.getElementById('chatbotToggleBtn');
+  const chatbotFloatWrap = document.getElementById('chatbotFloatWrap');
+  const chatbotWindow = document.getElementById('chatbotWindow');
+  const chatbotCloseBtn = document.getElementById('chatbotCloseBtn');
+  const chatbotResetBtn = document.getElementById('chatbotResetBtn');
+  const chatbotMessages = document.getElementById('chatbotMessages');
+  const chatbotTyping = document.getElementById('chatbotTyping');
+  const chatbotForm = document.getElementById('chatbotForm');
+  const chatbotInput = document.getElementById('chatbotInput');
+
+  const openChatbot = () => {
+    chatbotWindow?.classList.add('active');
+    chatbotFloatWrap?.classList.add('is-open');
+    chatbotWindow?.setAttribute('aria-hidden', 'false');
+    setTimeout(() => chatbotInput?.focus(), 250);
+  };
+
+  const closeChatbot = () => {
+    chatbotWindow?.classList.remove('active');
+    chatbotFloatWrap?.classList.remove('is-open');
+    chatbotWindow?.setAttribute('aria-hidden', 'true');
+  };
+
+  chatbotToggleBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (chatbotWindow?.classList.contains('active')) {
+      closeChatbot();
+    } else {
+      openChatbot();
+    }
+  });
+
+  chatbotCloseBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeChatbot();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chatbotWindow?.classList.contains('active')) {
+      closeChatbot();
+    }
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (
+      chatbotWindow?.classList.contains('active') &&
+      !chatbotWindow.contains(e.target) &&
+      !chatbotFloatWrap.contains(e.target)
+    ) {
+      closeChatbot();
+    }
+  });
+
+  const scrollChatToBottom = () => {
+    if (chatbotMessages) {
+      chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+    }
+  };
+
+  const appendUserMessage = (text) => {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-msg user-msg';
+    msgDiv.innerHTML = `
+      <div class="chat-msg-content">
+        <p>${escapeHtml(text)}</p>
+      </div>
+    `;
+    chatbotMessages.appendChild(msgDiv);
+    scrollChatToBottom();
+  };
+
+  const appendBotMessage = (htmlContent) => {
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'chat-msg bot-msg';
+    msgDiv.innerHTML = `
+      <div class="chat-msg-avatar">
+        <img src="assets/parshva.jpg" alt="Parshva">
+      </div>
+      <div class="chat-msg-content">
+        ${htmlContent}
+      </div>
+    `;
+    chatbotMessages.appendChild(msgDiv);
+    scrollChatToBottom();
+  };
+
+  const escapeHtml = (str) => {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  };
+
+  const botResponses = {
+    projects: `
+      <p>Here are Parshva's verified live platforms:</p>
+      <p>🏔️ <strong>Ibex Adventure</strong><br>
+      High-converting adventure tourism and trekking platform with responsive UX.<br>
+      <a href="https://ibex-adventure-updated.vercel.app/" target="_blank" rel="noopener" class="chat-link-btn">Visit Ibex Adventure <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+      <p>🛡️ <strong>GeM Verify</strong><br>
+      Government e-Marketplace vendor verification and credential validation tool.<br>
+      <a href="https://gem-verify-ten.vercel.app/" target="_blank" rel="noopener" class="chat-link-btn">Visit GeM Verify <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
+    `,
+    pricing: `
+      <p>Parshva offers 3 clean website packages:</p>
+      <p>💼 <strong>Basic Website (Starter)</strong>: 3-5 pages, mobile-first design, contact forms & WhatsApp quick chat. (5-7 business days)</p>
+      <p>🚀 <strong>Standard Website (Growth)</strong>: 5-8 pages, bespoke layout, micro-animations, on-page SEO setup & PageSpeed &gt;90.</p>
+      <p>👑 <strong>Premium Website (Enterprise)</strong>: Full custom web app, CMS admin panel, database integration, and Razorpay/Stripe e-commerce payment gateway.</p>
+      <a href="#services" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Explore Packages Section <i class="fa-solid fa-arrow-down"></i></a>
+      <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I'd%20like%20a%20quote%20for%20my%20website%20project." target="_blank" rel="noopener" class="chat-link-btn wa-btn">Get Custom Quote on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+    `,
+    stack: `
+      <p>Parshva's core technology stack:</p>
+      <p>⚡ <strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Next.js, Tailwind CSS</p>
+      <p>🛠️ <strong>Backend & APIs:</strong> Node.js, Express, Python, REST APIs</p>
+      <p>🗄️ <strong>Database & Hosting:</strong> Supabase, PostgreSQL, MongoDB, Vercel, Git & GitHub</p>
+      <p>🎯 <strong>Standards:</strong> 100% Mobile-first UI, Technical SEO, sub-second load times.</p>
+    `,
+    timeline: `
+      <p>Standard delivery timelines:</p>
+      <p>⚡ <strong>Starter Website:</strong> 5 to 7 business days</p>
+      <p>🚀 <strong>Standard Website:</strong> 10 to 14 business days</p>
+      <p>🏢 <strong>Custom Web App / E-Commerce:</strong> 2 to 4 weeks depending on features</p>
+      <p>Fast-track emergency turnaround is also available upon inquiry.</p>
+    `,
+    whatsapp: `
+      <p>You can chat directly with Parshva on WhatsApp right now!</p>
+      <p>📱 <strong>Phone:</strong> +91 90540 79397<br>
+      📍 <strong>Location:</strong> Ahmedabad, Gujarat, India</p>
+      <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I%20am%20interested%20in%20building%20a%20website%20with%20you!" target="_blank" rel="noopener" class="chat-link-btn wa-btn">Open WhatsApp Directly <i class="fa-brands fa-whatsapp"></i></a>
+    `,
+    contact: `
+      <p>Ready to start your project?</p>
+      <p>You can reach Parshva via:</p>
+      <p>📧 <strong>Email:</strong> patelparshv1052006@gmail.com<br>
+      📱 <strong>WhatsApp:</strong> +91 90540 79397</p>
+      <a href="#contact" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Go to Contact Form <i class="fa-solid fa-arrow-down"></i></a>
+      <a href="https://wa.me/919054079397?text=Hi%20Parshva,%20I%20would%20like%20to%20discuss%20a%20new%20project." target="_blank" rel="noopener" class="chat-link-btn wa-btn">Chat on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+    `
+  };
+
+  const getSmartReply = (rawText) => {
+    const q = rawText.toLowerCase().trim();
+
+    if (q.includes('project') || q.includes('work') || q.includes('portfolio') || q.includes('ibex') || q.includes('gem') || q.includes('sample')) {
+      return botResponses.projects;
+    }
+    if (q.includes('price') || q.includes('pricing') || q.includes('cost') || q.includes('package') || q.includes('rate') || q.includes('charge') || q.includes('plan') || q.includes('starter') || q.includes('standard') || q.includes('premium')) {
+      return botResponses.pricing;
+    }
+    if (q.includes('tech') || q.includes('stack') || q.includes('skill') || q.includes('language') || q.includes('react') || q.includes('tool') || q.includes('framework')) {
+      return botResponses.stack;
+    }
+    if (q.includes('time') || q.includes('timeline') || q.includes('day') || q.includes('how long') || q.includes('fast') || q.includes('delivery')) {
+      return botResponses.timeline;
+    }
+    if (q.includes('whatsapp') || q.includes('phone') || q.includes('call') || q.includes('number') || q.includes('mobile')) {
+      return botResponses.whatsapp;
+    }
+    if (q.includes('contact') || q.includes('hire') || q.includes('email') || q.includes('quote') || q.includes('meet') || q.includes('touch') || q.includes('inquiry')) {
+      return botResponses.contact;
+    }
+    if (q.includes('hi') || q.includes('hello') || q.includes('hey') || q.includes('kem cho') || q.includes('namaste') || q.includes('morning') || q.includes('evening')) {
+      return `<p>Hello! 👋 Great to connect with you. How can Parshva assist you with your website or web application project today?</p>`;
+    }
+    if (q.includes('about') || q.includes('who') || q.includes('parshva') || q.includes('experience')) {
+      return `
+        <p>Parshva is a freelance web developer and UI designer based in <strong>Ahmedabad, Gujarat, India</strong>.</p>
+        <p>He specializes in hand-crafted, conversion-oriented websites, custom frontend engineering, and full-stack web applications.</p>
+        <a href="#about" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">Read Full About Section <i class="fa-solid fa-arrow-down"></i></a>
+      `;
+    }
+
+    return `
+      <p>Thank you for asking! Parshva can definitely assist you with that.</p>
+      <p>For custom inquiries, tailored requirements, or to get an instant quote, feel free to send a message directly:</p>
+      <a href="https://wa.me/919054079397?text=${encodeURIComponent('Hi Parshva, ' + rawText)}" target="_blank" rel="noopener" class="chat-link-btn wa-btn">Message Parshva on WhatsApp <i class="fa-brands fa-whatsapp"></i></a>
+      <a href="#services" class="chat-link-btn" onclick="document.getElementById('chatbotWindow').classList.remove('active'); document.getElementById('chatbotFloatWrap').classList.remove('is-open');">View Packages <i class="fa-solid fa-arrow-down"></i></a>
+    `;
+  };
+
+  const handleUserSubmission = (text) => {
+    if (!text || !text.trim()) return;
+
+    appendUserMessage(text);
+    if (chatbotInput) chatbotInput.value = '';
+
+    // Show typing indicator
+    if (chatbotTyping) {
+      chatbotTyping.classList.add('active');
+      scrollChatToBottom();
+    }
+
+    // Realistic response delay
+    setTimeout(() => {
+      if (chatbotTyping) chatbotTyping.classList.remove('active');
+      const reply = getSmartReply(text);
+      appendBotMessage(reply);
+    }, 450);
+  };
+
+  // Form submit handler
+  chatbotForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = chatbotInput?.value;
+    handleUserSubmission(text);
+  });
+
+  // Chips click handler
+  chatbotMessages?.addEventListener('click', (e) => {
+    const chip = e.target.closest('.chat-chip');
+    if (!chip) return;
+
+    const queryKey = chip.getAttribute('data-query');
+    const chipText = chip.textContent.trim();
+
+    appendUserMessage(chipText);
+
+    if (chatbotTyping) {
+      chatbotTyping.classList.add('active');
+      scrollChatToBottom();
+    }
+
+    setTimeout(() => {
+      if (chatbotTyping) chatbotTyping.classList.remove('active');
+      const reply = botResponses[queryKey] || getSmartReply(chipText);
+      appendBotMessage(reply);
+    }, 380);
+  });
+
+  // Reset conversation button
+  chatbotResetBtn?.addEventListener('click', () => {
+    if (!chatbotMessages) return;
+    chatbotMessages.innerHTML = `
+      <div class="chat-system-pill">
+        <span>⚡ Interactive Portfolio Assistant</span>
+      </div>
+      <div class="chat-msg bot-msg">
+        <div class="chat-msg-avatar">
+          <img src="assets/parshva.jpg" alt="Parshva">
+        </div>
+        <div class="chat-msg-content">
+          <p>Hi there! 👋 I'm Parshva's Virtual Assistant.</p>
+          <p>Whether you'd like to explore live projects, discuss pricing, understand the tech stack, or get a quotation, I'm here to help.</p>
+          <p>How can I assist you today?</p>
+        </div>
+      </div>
+      <div class="chat-chips-container" id="chatChipsContainer">
+        <button type="button" class="chat-chip" data-query="projects">🚀 Live Projects</button>
+        <button type="button" class="chat-chip" data-query="pricing">💼 Packages &amp; Pricing</button>
+        <button type="button" class="chat-chip" data-query="stack">⚡ Tech Stack</button>
+        <button type="button" class="chat-chip" data-query="timeline">⏱️ Delivery Time</button>
+        <button type="button" class="chat-chip" data-query="whatsapp">💬 WhatsApp Parshva</button>
+        <button type="button" class="chat-chip" data-query="contact">📩 Get a Free Quote</button>
+      </div>
+    `;
+    showToast('Chat reset', 'info');
+  });
+
 });
